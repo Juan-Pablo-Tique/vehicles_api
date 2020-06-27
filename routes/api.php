@@ -21,4 +21,4 @@ Route::apiResource("colors", "ColorsController");
 Route::apiResource("brands", "BrandsController");
 Route::apiResource("cities", "CitiesController");
 Route::apiResource("types", "TypeController");
-Route::apiResource("allOwners", "OwnersDataControllerController");
+Route::apiResource("all/owners", "OwnersDataController");
