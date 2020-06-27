@@ -25,7 +25,7 @@ class CreateVehiclesTable extends Migration
             $table->foreign('vehicle_id_brand')->references('brand_id')->on('brands');
             $table->unsignedBigInteger('vehicle_id_owner');
             $table->foreign('vehicle_id_owner')->references('owner_id')->on('owners');
-            $table->unsignedBigInteger('id_driver');
+            $table->unsignedBigInteger('vehicle_id_driver');
             $table->foreign('vehicle_id_driver')->references('driver_id')->on('drivers');
         });
     }
