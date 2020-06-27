@@ -15,7 +15,7 @@ class OwnersDataController extends Controller
     public function index()
     {
         return $data = DB::table('owners')
-            ->select('owners.*', 'cities.name')
+            ->select('owners.*', 'cities.name as city_name')
             ->join('cities', 'owners.id_city', '=', 'cities.id')
             ->get();
     }
