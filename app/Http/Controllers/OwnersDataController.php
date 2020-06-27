@@ -16,7 +16,7 @@ class OwnersDataController extends Controller
     {
         return $data = DB::table('owners')
             ->select('owners.*', 'cities.name')
-            ->join('cities', 'id_city', '=', 'id')
+            ->join('cities', 'owners.id_city', '=', 'cities.id')
             ->get();
     }
 }
