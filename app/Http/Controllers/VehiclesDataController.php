@@ -15,12 +15,12 @@ class VehiclesDataController extends Controller
     public function index()
     {
         return $data = DB::table('vehicles')
-            ->select('vehicles.*', 'types.name', 'colors.name', 'brands.name', 'owners.*', 'drivers.*')
-            ->join('types', 'vehicles.id_type', '=', 'types.id')
-            ->join('colors', 'vehicles.id_color', '=', 'colors.id')
-            ->join('brands', 'vehicles.id_brand', '=', 'brands.id')
-            ->join('owners', 'vehicles.id_owner', '=', 'owners.id')
-            ->join('drivers', 'vehicles.id_driver', '=', 'drivers.id')
+            ->select('vehicles.*', 'types.*', 'colors.*', 'brands.*', 'owners.*', 'drivers.*')
+            ->join('types', 'vehicles.vehicle_id_type', '=', 'types.type_id')
+            ->join('colors', 'vehicles.vehicle_id_color', '=', 'colors.color_id')
+            ->join('brands', 'vehicles.vehicle_id_brand', '=', 'brands.brand_id')
+            ->join('owners', 'vehicles.vehicle_id_owner', '=', 'owners.owner_id')
+            ->join('drivers', 'vehicles.vehicle_id_driver', '=', 'drivers.driver_id')
             ->get();
     }
 }

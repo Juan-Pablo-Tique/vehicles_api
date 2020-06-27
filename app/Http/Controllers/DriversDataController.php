@@ -15,8 +15,8 @@ class DriversDataController extends Controller
     public function index()
     {
         return $data = DB::table('drivers')
-            ->select('drivers.*', 'cities.name')
-            ->join('cities', 'drivers.id_city', '=', 'cities.id')
+            ->select('drivers.*', 'cities.*')
+            ->join('cities', 'drivers.driver_id_city', '=', 'cities.city_id')
             ->get();
     }
 }

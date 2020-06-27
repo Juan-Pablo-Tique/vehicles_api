@@ -14,16 +14,16 @@ class CreateDriversTable extends Migration
     public function up()
     {
         Schema::create('drivers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('driver_id');
             $table->timestamps();
-            $table->string('identification_number')->unique();
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('surnames');
-            $table->mediumText('direction');
-            $table->bigInteger('telephone');
-            $table->unsignedBigInteger('id_city');
-            $table->foreign('id_city')->references('id')->on('cities');
+            $table->string('driver_identification_number')->unique();
+            $table->string('driver_first_name');
+            $table->string('driver_second_name');
+            $table->string('driver_surnames');
+            $table->mediumText('driver_direction');
+            $table->bigInteger('driver_telephone');
+            $table->unsignedBigInteger('driver_id_city');
+            $table->foreign('driver_id_city')->references('city_id')->on('cities');
         });
     }
 

@@ -14,16 +14,16 @@ class CreateOwnersTable extends Migration
     public function up()
     {
         Schema::create('owners', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('owner_id');
             $table->timestamps();
-            $table->string('identification_number')->unique();
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('surnames');
-            $table->mediumText('direction');
-            $table->bigInteger('telephone');
-            $table->unsignedBigInteger('id_city');
-            $table->foreign('id_city')->references('id')->on('cities');
+            $table->string('owner_identification_number')->unique();
+            $table->string('owner_first_name');
+            $table->string('owner_second_name');
+            $table->string('owner_surnames');
+            $table->mediumText('owner_direction');
+            $table->bigInteger('owner_telephone');
+            $table->unsignedBigInteger('owner_id_city');
+            $table->foreign('owner_id_city')->references('city_id')->on('cities');
         });
     }
 

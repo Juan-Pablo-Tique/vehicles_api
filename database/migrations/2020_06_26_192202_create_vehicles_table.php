@@ -14,19 +14,19 @@ class CreateVehiclesTable extends Migration
     public function up()
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('vehicle_id');
             $table->timestamps();
-            $table->unsignedBigInteger('id_type');
-            $table->foreign('id_type')->references('id')->on('types');
-            $table->string('license_plate')->unique();
-            $table->unsignedBigInteger('id_color');
-            $table->foreign('id_color')->references('id')->on('colors');
-            $table->unsignedBigInteger('id_brand');
-            $table->foreign('id_brand')->references('id')->on('brands');
-            $table->unsignedBigInteger('id_owner');
-            $table->foreign('id_owner')->references('id')->on('owners');
+            $table->unsignedBigInteger('vehicle_id_type');
+            $table->foreign('vehicle_id_type')->references('type_id')->on('types');
+            $table->string('vehicle_license_plate')->unique();
+            $table->unsignedBigInteger('vehicle_id_color');
+            $table->foreign('vehicle_id_color')->references('color_id')->on('colors');
+            $table->unsignedBigInteger('vehicle_id_brand');
+            $table->foreign('vehicle_id_brand')->references('brand_id')->on('brands');
+            $table->unsignedBigInteger('vehicle_id_owner');
+            $table->foreign('vehicle_id_owner')->references('owner_id')->on('owners');
             $table->unsignedBigInteger('id_driver');
-            $table->foreign('id_driver')->references('id')->on('drivers');
+            $table->foreign('vehicle_id_driver')->references('driver_id')->on('drivers');
         });
     }
 
