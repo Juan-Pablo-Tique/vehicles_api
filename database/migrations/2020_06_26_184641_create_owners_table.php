@@ -21,7 +21,7 @@ class CreateOwnersTable extends Migration
             $table->string('second_name');
             $table->string('surnames');
             $table->mediumText('direction');
-            $table->integer('telephone');
+            $table->bigInteger('telephone');
             $table->unsignedBigInteger('id_city');
             $table->foreign('id_city')->references('id')->on('cities');
         });
